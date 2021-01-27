@@ -20,8 +20,7 @@
 //         length: 14,
 //         child: Scaffold(
 //                       backgroundColor:   Colors.grey.shade100,
-//           appBar: AppBar(title: Center(child: Text('وكالة أنباء المستقبل',textDirection: TextDirection.rtl,style: TextStyle(fontFamily: 'Tajawal'),)),backgroundColor: Color.fromRGBO(27,38,50,1),
-
+//           appBar: AppBar(title: Center(child: Text('بابليتي',textDirection: TextDirection.rtl,style: TextStyle(fontFamily: 'Tajawal'),)),backgroundColor: Color.fromRGBO(27,38,50,1),
 
 //           bottom: TabBar(
 //             indicatorColor: Colors.amber,
@@ -43,14 +42,10 @@
 //                 Text('صور'),
 //                 Text('كاريكاتير'),
 //                 Text('منوعات'),
-                
-                
+
 //                 // Text('رياضة محلية'),
-                
-                
-                
-                
-// //                Text('وكالة انباء المستقبل'),
+
+// //                Text('بابليتي'),
 //               ],
 //             ),
 //           ),
@@ -73,12 +68,9 @@
 //               Wakala(id: 12,),
 //               Wakala(id: 28,),
 //               Wakala(id: 26,),
-              
-              
-              
-              
+
 //               // Wakala(id: 5,),
-              
+
 // //              Wakala(id: 13,),
 //             ],
 //           ),

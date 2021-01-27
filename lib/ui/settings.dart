@@ -5,6 +5,7 @@ import 'package:url_launcher/url_launcher.dart';
 
 import '../main.dart';
 import 'Data/data.dart';
+
 class Settings extends StatefulWidget {
   @override
   _SettingsState createState() => _SettingsState();
@@ -33,6 +34,7 @@ class _SettingsState extends State<Settings> {
       });
     }
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -48,7 +50,7 @@ class _SettingsState extends State<Settings> {
               fontFamily: 'Tajawal'),
         ),
         elevation: 5,
-        backgroundColor: Color.fromRGBO(27,38,50,1),
+        backgroundColor: Color.fromRGBO(27, 38, 50, 1),
       ),
       body: Container(
         decoration: BoxDecoration(color: Colors.white),
@@ -67,7 +69,7 @@ class _SettingsState extends State<Settings> {
                 alignment: Alignment.center,
                 padding: EdgeInsets.fromLTRB(0, 10, 0, 20),
                 child: Text(
-                  "Version 1.0.7 \n ${data[3]['content']} \n \n طور من قبل فريق تقنية المعلومات بمؤسسة الخدمات الإعلامية بمجلس النواب الليبي ",
+                  "Version 1.2.0 \n ${data[3]['content']} \n \n طور من قبل فريق توتي إنتراكتف ",
                   textAlign: TextAlign.center,
                   style: TextStyle(height: 1.6, color: Colors.black87),
                 ),
@@ -76,57 +78,57 @@ class _SettingsState extends State<Settings> {
                 height: 10,
                 thickness: 2,
               ),
-              Directionality(textDirection: TextDirection.rtl, 
-              child: ListView(
-                shrinkWrap: true,
-                children: <Widget>[
-                  ListTile(
-                    leading: Image.asset(
-                      "images/more/contact.png",
-                      width: 30,
-                    ),
-                    title: Text('تواصل معنا'),
-                    subtitle: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: <Widget>[
-                     FlatButton(
-                         padding: EdgeInsets.all(0),
-                         onPressed: () async {
-                           const url = 'mailto:it@msf-hor.org';
-                           if (await canLaunch(url)) {
-                             await launch(url);
-                           } else {
-                             throw 'Could not launch $url';
-                           }
-                         },
-                         child: Text( 
-                           "it@msf-hor.org",
-                           textDirection: TextDirection.rtl,
-                           style: TextStyle(color: Colors.black54),
-                         )),
-                      ],
-                    ),
-                  ),
-                  InkWell(
-                    onTap: () {
-                      Share.share(
-                          'https://play.google.com/store/apps/details?id=com.msfhor.wakala :قم بتحميل تطبيق وكالة أنباء المستقبل');
-                    },
-                    child: ListTile(
-                      
-                      leading: Image.asset(
-                        "images/more/share.png",
-                        width: 30,
-                        alignment: Alignment.centerRight,
+              Directionality(
+                  textDirection: TextDirection.rtl,
+                  child: ListView(
+                    shrinkWrap: true,
+                    children: <Widget>[
+                      ListTile(
+                        leading: Image.asset(
+                          "images/more/contact.png",
+                          width: 30,
+                        ),
+                        title: Text('تواصل معنا'),
+                        subtitle: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: <Widget>[
+                            FlatButton(
+                                padding: EdgeInsets.all(0),
+                                onPressed: () async {
+                                  const url = 'mailto:info@babliyati.com';
+                                  if (await canLaunch(url)) {
+                                    await launch(url);
+                                  } else {
+                                    throw 'Could not launch $url';
+                                  }
+                                },
+                                child: Text(
+                                  "info@babliyati.com",
+                                  textDirection: TextDirection.rtl,
+                                  style: TextStyle(color: Colors.black54),
+                                )),
+                          ],
+                        ),
                       ),
-                      title: Text('مشاركة',
-                      textDirection: TextDirection.rtl,),
-                    ),
-                  ),
-                ],
-              )
-              )
-              
+                      InkWell(
+                        onTap: () {
+                          Share.share(
+                              'https://play.google.com/store/apps/details?id=com.ttinteractive.babliyati :قم بتحميل تطبيق بابليتي');
+                        },
+                        child: ListTile(
+                          leading: Image.asset(
+                            "images/more/share.png",
+                            width: 30,
+                            alignment: Alignment.centerRight,
+                          ),
+                          title: Text(
+                            'مشاركة',
+                            textDirection: TextDirection.rtl,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ))
             ],
           ),
         ),

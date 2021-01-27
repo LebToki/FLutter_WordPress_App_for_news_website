@@ -4,16 +4,15 @@ import 'package:flutter/material.dart';
 import 'package:wakala/ui/splash.dart';
 import 'package:flutter/foundation.dart';
 import 'dart:io';
+
 void main() {
-   FlutterError.onError = (FlutterErrorDetails details) {
+  FlutterError.onError = (FlutterErrorDetails details) {
     FlutterError.dumpErrorToConsole(details);
-    if (kReleaseMode)
-      exit(1);
+    if (kReleaseMode) exit(1);
   };
 
-
   runApp(MyApp());
-  }
+}
 
 class MyApp extends StatefulWidget {
   // This widget is the root of your application.
@@ -24,23 +23,20 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
 //  FirebaseMessaging firebaseMessaging = new FirebaseMessaging();
   @override
- void initState()  {
+  void initState() {
+    super.initState();
 
-     super.initState();
-
-   OneSignal.shared.init(
-  "9a65791b-f885-49ad-97c8-dec2b4a0dfea",
-  iOSSettings: {
-    OSiOSSettings.autoPrompt: false,
-    OSiOSSettings.inAppLaunchUrl: true,
-  }
-);
-OneSignal.shared.setInFocusDisplayType(OSNotificationDisplayType.notification);
-   OneSignal. shared .setInFocusDisplayType (OSNotificationDisplayType.none);
-   OneSignal.shared.setNotificationReceivedHandler((OSNotification notification) {
-   });
-    OneSignal.shared.setNotificationOpenedHandler((OSNotificationOpenedResult result) {
-});
+    OneSignal.shared.init("9a65791b-f885-49ad-97c8-dec2b4a0dfea", iOSSettings: {
+      OSiOSSettings.autoPrompt: false,
+      OSiOSSettings.inAppLaunchUrl: true,
+    });
+    OneSignal.shared
+        .setInFocusDisplayType(OSNotificationDisplayType.notification);
+    OneSignal.shared.setInFocusDisplayType(OSNotificationDisplayType.none);
+    OneSignal.shared
+        .setNotificationReceivedHandler((OSNotification notification) {});
+    OneSignal.shared
+        .setNotificationOpenedHandler((OSNotificationOpenedResult result) {});
 //   firebaseMessaging.configure(
 //     onMessage: (Map<String, dynamic> message) {
 //       print('onMessage called: $message');
@@ -74,11 +70,12 @@ OneSignal.shared.setInFocusDisplayType(OSNotificationDisplayType.notification);
 //     dToken=token;
 //   print('FCM Token: $dToken');
 // });
- }
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'وكالة أنباء المستقبل',
+      title: 'بابليتي',
       theme: ThemeData(
         primarySwatch: Colors.blue,
         accentColor: Colors.amber,
@@ -88,4 +85,3 @@ OneSignal.shared.setInFocusDisplayType(OSNotificationDisplayType.notification);
     );
   }
 }
-

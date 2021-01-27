@@ -9,7 +9,7 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  Size devise_size;
+  Size device_size;
   int currentIndex = 3;
 
   int r = 212;
@@ -19,21 +19,19 @@ class _HomeState extends State<Home> {
   int b = 55;
   @override
   Widget build(BuildContext context) {
-    devise_size = MediaQuery.of(context).size;
+    device_size = MediaQuery.of(context).size;
     // TODO: implement build
     return Scaffold(
-            backgroundColor:   Colors.grey.shade100,
-
+      backgroundColor: Colors.grey.shade100,
       appBar: AppBar(
         title: Center(
             child: Text(
-          'وكالة أنباء المستقبل',
+          'بابليتي',
           textDirection: TextDirection.rtl,
           style: TextStyle(fontFamily: 'Tajawal'),
         )),
         backgroundColor: Color.fromRGBO(27, 38, 50, 1),
       ),
-
       body: ListView(
         children: <Widget>[
           Column(
@@ -73,12 +71,12 @@ class _HomeState extends State<Home> {
                                   height: 10.0,
                                 ),
                                 Text(
-                                  " طور من قبل فريق تقنية المعلومات بمؤسسة الخدمات الإعلامية بمجلس النواب الليبي",
+                                  " طور من قبل فريق تو تي إنتراكنيف",
                                   textDirection: TextDirection.rtl,
                                 ),
                               ],
-                              applicationName: "وكالة أنباء المستقبل",
-                              applicationVersion: "1.0.6",
+                              applicationName: "بابليتي",
+                              applicationVersion: "1.1.0",
 //                     applicationLegalese: "Apache License 2.0",
                             ),
                           ),
@@ -155,8 +153,8 @@ class _HomeState extends State<Home> {
 //          Padding(
 //            padding: const EdgeInsets.all(8.0),
 //            child: Container(
-//        height: devise_size.height+250,
-//        width: devise_size.width,
+//        height: device_size.height+250,
+//        width: device_size.width,
 //        child: Padding(
 //            padding: const EdgeInsets.fromLTRB(0, 0, 0, 40),
 //            child: Column(

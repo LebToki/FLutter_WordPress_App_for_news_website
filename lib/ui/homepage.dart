@@ -14,7 +14,7 @@ import 'package:package_info/package_info.dart';
 import 'package:firebase_remote_config/firebase_remote_config.dart';
 import 'package:wakala/ui/categories.dart';
 
-class MyHomePage extends StatefulWidget{
+class MyHomePage extends StatefulWidget {
   @override
   _MyHomePageState createState() => _MyHomePageState();
 }
@@ -28,41 +28,38 @@ class _MyHomePageState extends State<MyHomePage> {
     super.initState();
     _pageController = PageController();
   }
+
   @override
   void dispose() {
     _pageController.dispose();
     super.dispose();
   }
+
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
     return Scaffold(
-//      appBar:  AppBar(title: Center(child: Text('وكالة أنباء المستقبل',textDirection: TextDirection.rtl,)),backgroundColor: Color.fromRGBO(27,38,50,1),),
+//      appBar:  AppBar(title: Center(child: Text('بابليتي',textDirection: TextDirection.rtl,)),backgroundColor: Color.fromRGBO(27,38,50,1),),
 
-    body: SizedBox.expand(
+      body: SizedBox.expand(
         child: PageView(
-          physics:new NeverScrollableScrollPhysics(),
+          physics: new NeverScrollableScrollPhysics(),
           controller: _pageController,
           onPageChanged: (index) {
             setState(() => _currentIndex = index);
           },
-          children: <Widget>[
-            Whome(),
-            Categories(),
-            Search(),
-            Settings()
-          ],
+          children: <Widget>[Whome(), Categories(), Search(), Settings()],
         ),
       ),
       bottomNavigationBar: BottomNavyBar(
-        backgroundColor: Color.fromRGBO(27,38,50,1),
+        backgroundColor: Color.fromRGBO(27, 38, 50, 1),
         selectedIndex: _currentIndex,
         onItemSelected: (index) {
           setState(() => _currentIndex = index);
           _pageController.jumpToPage(index);
         },
         items: <BottomNavyBarItem>[
-        BottomNavyBarItem(
+          BottomNavyBarItem(
             icon: Icon(Icons.home),
             title: Text('الرئيسية'),
             activeColor: Colors.white38,
@@ -85,13 +82,13 @@ class _MyHomePageState extends State<MyHomePage> {
         ],
       ),
     );
-
   }
 }
+
 const APP_STORE_URL =
     'https://phobos.apple.com/WebObjects/MZStore.woa/wa/viewSoftwareUpdate?id=YOUR-APP-ID&mt=8';
 const PLAY_STORE_URL =
-    'https://play.google.com/store/apps/details?id=com.msfhor.wakala';
+    'https://play.google.com/store/apps/details?id=com.ttinteractive.babliyati';
 
 versionCheck(context) async {
   //Get Current installed version of app
@@ -121,46 +118,53 @@ versionCheck(context) async {
         'used');
   }
 }
-//Show Dialog to force user to update
+
+Show Dialog to force user to update
 _showVersionDialog(context) async {
   await showDialog<String>(
     context: context,
-    barrierDismissible: false,
+    // barrierDismissible: false,
+    barrierDismissible: true,
     builder: (BuildContext context) {
       String title = " تحديث متوفر";
-      String message =
-          "هناك اصدار أحدث متوفر لهذا التطبيق";
+      String message = "هناك اصدار أحدث متوفر لهذا التطبيق";
       String btnLabel = "تحديث الآن";
       String btnLabelCancel = "لاحقا";
       return Platform.isIOS
           ? new CupertinoAlertDialog(
-        title: Text(title),
-        content: Text(message),
-        actions: <Widget>[
-          FlatButton(
-            child: Text(btnLabel),
-            onPressed: () => _launchURL(APP_STORE_URL),
-          ),
-          FlatButton(
-            child: Text(btnLabelCancel),
-            onPressed: () => Navigator.pop(context),
-          ),
-        ],
-      )
+              title: Text(title),
+              content: Text(message),
+              actions: <Widget>[
+                FlatButton(
+                  child: Text(btnLabel),
+                  onPressed: () => _launchURL(APP_STORE_URL),
+                  // onPressed: () => Navigator.of(context, rootNavigator: true).pop()
+                ),
+                FlatButton(
+                    child: Text(btnLabelCancel),
+                    // onPressed: () =>
+                    //     Navigator.of(context, rootNavigator: true).pop()
+                    onPressed: () => Navigator.pop(context),
+                    ),
+              ],
+            )
           : new AlertDialog(
-        title: Text(title,textDirection: TextDirection.rtl,),
-        content: Text(message,textDirection: TextDirection.rtl),
-        actions: <Widget>[
-          FlatButton(
-            child: Text(btnLabel,textDirection: TextDirection.rtl),
-            onPressed: () => _launchURL(PLAY_STORE_URL),
-          ),
-          FlatButton(
-            child: Text(btnLabelCancel,textDirection: TextDirection.rtl),
-            onPressed: () => Navigator.pop(context),
-          ),
-        ],
-      );
+              title: Text(
+                title,
+                textDirection: TextDirection.rtl,
+              ),
+              content: Text(message, textDirection: TextDirection.rtl),
+              actions: <Widget>[
+                FlatButton(
+                  child: Text(btnLabel, textDirection: TextDirection.rtl),
+                  onPressed: () => _launchURL(PLAY_STORE_URL),
+                ),
+                FlatButton(
+                  child: Text(btnLabelCancel, textDirection: TextDirection.rtl),
+                  onPressed: () => Navigator.pop(context),
+                ),
+              ],
+            );
     },
   );
 }
